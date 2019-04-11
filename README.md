@@ -1,6 +1,6 @@
 # LZString
 
-LZ-based compression algorithm for Haxe.
+**LZ-based compression algorithm for Haxe.**
 
 This is a port of lz-string <https://github.com/pieroxy/lz-string>. More info about the library can be found here http://pieroxy.net/blog/pages/lz-string/index.html.
 
