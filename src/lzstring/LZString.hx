@@ -33,7 +33,7 @@ class LZString {
 
 	public function compressToBase64 (input):String {
 		if (input == null) return "";
-		var res = _compress(input, 6, function(a) return keyStrBase64.charAt(a));
+		var res = _compress(input, 6, a -> keyStrBase64.charAt(a));
 		switch (res.length % 4) { // To produce valid Base64
 			case 0 : return res;
 			case 1 : return res+"===";
@@ -46,18 +46,18 @@ class LZString {
 	public function decompressFromBase64 (input):String {
 		if (input == null) return "";
 		if (input == "") return null;
-		return _decompress(input.length, 32, function(index) return getBaseValue(keyStrBase64, input.charAt(index)));
+		return _decompress(input.length, 32, index -> getBaseValue(keyStrBase64, input.charAt(index)));
 	}
 
 	public function compressToUTF16 (input:String):String {
 		if (input == null) return "";
-		return _compress(input, 15, function(a) return String.fromCharCode(a+32)) + " ";
+		return _compress(input, 15, a -> String.fromCharCode(a+32)) + " ";
 	}
 
 	public function decompressFromUTF16 (compressed:String):String {
 		if (compressed == null) return "";
 		if (compressed == "") return null;
-		return _decompress(compressed.length, 16384, function(index) return compressed.charCodeAt(index) - 32);
+		return _decompress(compressed.length, 16384, index -> compressed.charCodeAt(index) - 32);
 	}
 
 	//compress into uint8array (UCS-2 big endian format)
@@ -89,7 +89,7 @@ class LZString {
 	//compress into a string that is already URI encoded
 	public function compressToEncodedURIComponent (input:String):String {
 		if (input == null) return "";
-		return _compress(input, 6, function(a) return keyStrUriSafe.charAt(a));
+		return _compress(input, 6, a -> keyStrUriSafe.charAt(a));
 	}
 
 	//decompress from an output of compressToEncodedURIComponent
@@ -97,11 +97,11 @@ class LZString {
 		if (input == null) return "";
 		if (input == "") return null;
 		input = input.replace(" ", "+");
-		return _decompress(input.length, 32, function(index) return getBaseValue(keyStrUriSafe, input.charAt(index)));
+		return _decompress(input.length, 32, index -> getBaseValue(keyStrUriSafe, input.charAt(index)));
 	}
 
 	public function compress (uncompressed:String):String {
-		return _compress(uncompressed, 16, function(a) return String.fromCharCode(a));
+		return _compress(uncompressed, 16, a -> String.fromCharCode(a));
 	}
 
 	function _compress (uncompressed:String, bitsPerChar:Int, getCharFromInt:Int->String):String {
@@ -318,7 +318,7 @@ class LZString {
 	public function decompress (compressed:String) {
 		if (compressed == null) return "";
 		if (compressed == "") return null;
-		return _decompress(compressed.length, 32768, function(index) return compressed.charCodeAt(index));
+		return _decompress(compressed.length, 32768, index -> compressed.charCodeAt(index));
 	}
 
 	function _decompress (length, resetValue, getNextValue):String {
