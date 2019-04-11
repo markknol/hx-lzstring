@@ -3,7 +3,7 @@
   "url" : "https://github.com/markknol/hx-lzstring/",
   "license": "MIT",
   "tags": ["haxe", "compression", "cross", "js", "crypto"],
-  "description": "Port of LZString.js for Haxe",
+  "description": "Port of LZString.js for Haxe 4.0+",
   "classPath": "src",
   "version": "0.0.1",
   "releasenote": "Initial release, fast port of LZString.js",
