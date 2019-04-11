@@ -8,7 +8,7 @@ This library should run on all Haxe targets. (but is mostly tested in JavaScript
 
 ### Dependencies
 
- * [Haxe](https://haxe.org/)
+ * [Haxe](https://haxe.org/) 4.0+
 
 ### Install the library for your project
 
