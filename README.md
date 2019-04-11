@@ -1,5 +1,6 @@
 # LZString
-
+[![Build Status](https://travis-ci.org/markknol/hx-lzstring.svg?branch=master)](https://travis-ci.org/markknol/hx-lzstring) [![Haxelib Version](https://img.shields.io/github/tag/markknol/hx-lzstring.svg?label=haxelib)](http://lib.haxe.org/p/lzstring)
+ 
 **LZ-based compression algorithm for Haxe.**
 
 This is a port of lz-string <https://github.com/pieroxy/lz-string>. More info about the library can be found here http://pieroxy.net/blog/pages/lz-string/index.html.
