@@ -33,9 +33,6 @@ Import the library in your code.
 import lzstring.LZString;
 ```
 
-And add this to your compile arguments / build hxml file
-
-
 #### API
 
 ```haxe
