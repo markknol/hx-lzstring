@@ -43,10 +43,10 @@ compressToUint8Array(uncompressed:String):UInt8Array
 compressToUTF116(input:String):String
 
 decompress(compressed:String):String
-decompressToBase64(input:String):String
-decompressToEncodedURIComponent(input:String):String
-decompressToUint8Array(compressed:UInt8Array):String
-decompressToUTF116(compressed:String):String
+decompressFromBase64(input:String):String
+decompressFromEncodedURIComponent(input:String):String
+decompressFromUint8Array(compressed:UInt8Array):String
+decompressFromUTF116(compressed:String):String
 ```
 
 #### Usage
