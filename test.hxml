@@ -2,3 +2,6 @@
 -cp src/
 -cp test/
 -js bin/LZString.js
+-dce full
+-D analyzer-optimize
+# -D js-es=6
